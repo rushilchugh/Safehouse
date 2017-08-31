@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        body
+        {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+    </style>
+    <style>
+
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #DDD;
+  font-size: 16px;
+  color: #222;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+#login-box {
+  position: relative;
+  margin: 5% auto;
+  width: 600px;
+  height: 450px;
+  background: #FFF;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+}
+
+h1 {
+  margin: 0 0 20px 0;
+  font-weight: 300;
+  font-size: 28px;
+}
+
+input[type="text"],
+input[type="password"] {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 4px;
+  width: 220px;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-bottom: 2px solid #16a085;
+  color: #16a085;
+  transition: 0.2s ease;
+}
+
+input[type="submit"] {
+  margin-top: 28px;
+  width: 120px;
+  height: 32px;
+  background: #16a085;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color:gray;
+}
+
+.ml {
+  margin-top: 28px;
+  width: 120px;
+    margin-top:100px;
+  height: 32px;
+  font-color:gray;
+  border: none;
+  border-radius: 2px;
+  //color: #FFF;
+    margin-right: 10px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+input[type="submit"]:active {
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+.or {
+  position: absolute;
+  top: 180px;
+  left: 280px;
+  width: 40px;
+  height: 40px;
+  background: #DDD;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  line-height: 40px;
+  text-align: center;
+}
+
+.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+  background: url('https://goo.gl/YbktSj');
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 2px 2px 0;
+}
+
+.right .loginwith {
+  display: block;
+  margin-bottom: 40px;
+  font-size: 28px;
+  color: #FFF;
+  text-align: center;
+}
+
+button.social-signin {
+  margin-bottom: 20px;
+  width: 220px;
+  height: 36px;
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+button.social-signin:hover,
+button.social-signin:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+}
+
+button.social-signin:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.2s ease;
+}
+
+button.social-signin.facebook {
+  background: #32508E;
+}
+
+button.social-signin.twitter {
+  background: #55ACEE;
+}
+
+button.social-signin.google {
+  background: #DD4B39;
+}
+</style>
+</head>
+<body>
+{{ json_resp }}
+<script type="text/javascript"
+  src=
+"http://maps.googleapis.com/maps/api/js?key=AIzaSyA96pDBlO6aHxpLknXasgfYqW-OKzPjDSU&sensor=false">
+</script>
+<script type="text/javascript">
+    var markers = [
+    {
+        "title": 'Aksa Beach',
+        "lat": '12.949499',
+        "lng": '77.5791356',
+        "description": 'Aksa Beach is a popular beach and a vacation spot in Aksa village at Malad, Mumbai.'
+    },
+    {
+        "title": 'Juhu Beach',
+        "lat": '12.9465569',
+        "lng": '77.5882572',
+        "description": 'Juhu Beach is one of favourite tourist attractions situated in Mumbai.'
+    },
+    {
+        "title": 'Girgaum Beach',
+        "lat": '18.9542149',
+        "lng": '72.81203529999993',
+        "description": 'Girgaum Beach commonly known as just Chaupati is one of the most famous public beaches in Mumbai.'
+    },
+    {
+        "title": 'Jijamata Udyan',
+        "lat": '18.979006',
+        "lng": '72.83388300000001',
+        "description": 'Jijamata Udyan is situated near Byculla station is famous as Mumbai (Bombay) Zoo.'
+    },
+    {
+        "title": 'Sanjay Gandhi National Park',
+        "lat": '19.2147067',
+        "lng": '72.91062020000004',
+        "description": 'Sanjay Gandhi National Park is a large protected area in the northern part of Mumbai city.'
+    }
+    ];
+
+{#    var markers = [{"title": 'Aksa Beach', "lat": '12.949499', "lng": '77.5791356', "description": 'Aksa Beach is a popular beach and a vacation spot in Aksa village at Malad, Mumbai.'},#}
+{#                    {"title": 'Juhu Beach', "lat": '12.9465569', "lng": '77.5882572', "description": 'Juhu Beach is one of favourite tourist attractions situated in Mumbai.'},#}
+{#                    {"title": 'Girgaum Beach', "lat": '18.9542149', "lng": '72.81203529999993', "description": 'Girgaum Beach commonly known as just Chaupati is one of the most famous public beaches in Mumbai.'},#}
+{#                    {"title": 'Mahaveer Lomrod, "lat": "12.9536772", "lng": "77.5729152", "description": "2nd Cross Rd, Parvathipuram, Vishweshwarapura, Shankarapura, Bengaluru, Karnataka 560004, India"},#}
+{#                    {"title": 'Sanjay Gandhi National Park', "lat": '19.2147067', "lng": '72.91062020000004', "description": 'Sanjay Gandhi National Park is a large protected area in the northern part of Mumbai city.'}];#}
+{##}
+{# var markers = {{ json_resp }};#}
+
+
+    window.onload = function () {
+        LoadMap();
+    };
+    function LoadMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+
+        //Create and open InfoWindow.
+        var infoWindow = new google.maps.InfoWindow();
+
+        for (var i = 0; i < markers.length; i++) {
+            var data = markers[i];
+            var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data.title
+            });
+
+            //Attach click event to the marker.
+            (function (marker, data) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                    infoWindow.setContent("<div style = 'width:200px;min-height:40px'>" + data.description + "</div>");
+                    infoWindow.open(map, marker);
+                });
+            })(marker, data);
+        }
+    }
+</script>
+<div id="dvMap" style="width: 900px; height: 500px">
+</div>
+</body>
+</html>

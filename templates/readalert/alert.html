@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    {% load easy_maps_tags %}
+
+    <div class = "container">
+        <h1>You're {{ ip }}</h1>
+        <h2> Closest 10 Safehouses are as Follows ..</h2>
+
+            <table width="100%">
+            <tr>
+                <th>City</th>
+                <th>Zip Code</th>
+                <th>Region Name</th>
+                <th>Time Zone</th>
+                <th>Region Code</th>
+                <th>Country Code</th>
+                <th>Country Name</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Distance</th>
+            </tr>
+
+        {% for i,j in nearest_10 %}
+
+
+            <tr>
+                <td>{{ i.city }}</td>
+                <td>{{ i.zip_code }}</td>
+                <td>{{ i.region_name }}</td>
+                <td>{{ i.time_zone }}</td>
+                <td>{{ i.region_code }}</td>
+                <td>{{ i.country_code }}</td>
+                <td>{{ i.country_name }}</td>
+                <td>{{ i.latitude }}</td>
+                <td>{{ i.longitude }}</td>
+                <td>{{ j }}</td>
+                <br>
+            </tr>
+        {% endfor %}
+
+                </table>
+
+    </div>
+
+
+</body>
+</html>
